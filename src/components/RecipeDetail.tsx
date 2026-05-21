@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRecipes } from '../context/RecipeContext';
-import { X, ChefHat, CheckSquare, Layers, Copy, Check } from 'lucide-react';
-import rawRecipes from '../../recipes.json';
+import { X, ChefHat, CheckSquare, Layers, Share2, Check } from 'lucide-react';
 
 export const RecipeDetail: React.FC = () => {
   const {
@@ -13,13 +12,15 @@ export const RecipeDetail: React.FC = () => {
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
 
-  // Copy feedback state
-  const [copied, setCopied] = useState(false);
+  // Share overlay states
+  const [isShareOpen, setIsShareOpen] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
 
   useEffect(() => {
     setCompletedSteps([]);
     setActiveStepIndex(0);
-    setCopied(false);
+    setIsShareOpen(false);
+    setShareCopied(false);
   }, [selectedRecipe]);
 
   useEffect(() => {
@@ -33,29 +34,54 @@ export const RecipeDetail: React.FC = () => {
     };
   }, [selectedRecipe]);
 
+  // Handle escape key listener for dismissing share sub-modal
   useEffect(() => {
-    if (copied) {
-      const timer = setTimeout(() => setCopied(false), 2000);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsShareOpen(false);
+      }
+    };
+    if (isShareOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isShareOpen]);
+
+  useEffect(() => {
+    if (shareCopied) {
+      const timer = setTimeout(() => setShareCopied(false), 2000);
       return () => clearTimeout(timer);
     }
-  }, [copied]);
+  }, [shareCopied]);
 
   if (!selectedRecipe) return null;
 
-  const handleCopyJson = async () => {
-    const original = (rawRecipes as any[]).find(r => r.title === selectedRecipe.title);
-    const jsonToCopy = original ? JSON.stringify(original, null, 2) : JSON.stringify({
+  const handleShareClick = async () => {
+    const shareData = {
       title: selectedRecipe.title,
-      category: selectedRecipe.category,
-      ingredients: selectedRecipe.ingredients,
-      method: selectedRecipe.method
-    }, null, 2);
+      text: `Check out this delicious recipe: ${selectedRecipe.title} on Sushma's Kitchen!`,
+      url: window.location.href,
+    };
 
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.log('Share canceled or failed:', err);
+      }
+    } else {
+      setIsShareOpen(true);
+    }
+  };
+
+  const handleCopyUrl = async () => {
     try {
-      await navigator.clipboard.writeText(jsonToCopy);
-      setCopied(true);
+      await navigator.clipboard.writeText(window.location.href);
+      setShareCopied(true);
     } catch (err) {
-      console.error('Failed to copy JSON: ', err);
+      console.error('Failed to copy URL: ', err);
     }
   };
 
@@ -105,13 +131,13 @@ export const RecipeDetail: React.FC = () => {
           </div>
           <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
             <button 
-              className={`modal-copy-btn ${copied ? 'copied' : ''}`}
-              onClick={handleCopyJson}
-              aria-label="Copy recipe JSON to clipboard"
-              title="Copy recipe JSON"
-              id="copy-recipe-json-btn"
+              className="modal-share-btn" 
+              onClick={handleShareClick}
+              aria-label="Share recipe"
+              title="Share recipe"
+              id="share-recipe-btn"
             >
-              {copied ? <Check size={18} style={{ color: 'var(--accent-cardamom)' }} /> : <Copy size={18} />}
+              <Share2 size={18} />
             </button>
             <button 
               className="modal-close-btn" 
@@ -187,6 +213,60 @@ export const RecipeDetail: React.FC = () => {
           </section>
         </div>
       </div>
+
+      {/* Desktop Share Modal Overlay */}
+      {isShareOpen && (
+        <div 
+          className="share-modal-overlay"
+          onClick={() => setIsShareOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="share-modal-title"
+        >
+          <div 
+            className="share-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="share-modal-header">
+              <h3 id="share-modal-title">Share Recipe</h3>
+              <button 
+                className="share-modal-close-btn"
+                onClick={() => setIsShareOpen(false)}
+                aria-label="Close share panel"
+                id="close-share-modal"
+              >
+                <X size={16} />
+              </button>
+            </div>
+            <p className="share-modal-desc">Copy the link below to share this recipe with others:</p>
+            <div className="share-input-group">
+              <input 
+                type="text" 
+                className="share-url-input" 
+                value={window.location.href} 
+                readOnly 
+                onClick={(e) => (e.target as HTMLInputElement).select()}
+                id="share-url-input"
+              />
+              <button 
+                className={`share-copy-btn ${shareCopied ? 'copied' : ''}`}
+                onClick={handleCopyUrl}
+                aria-label="Copy recipe link to clipboard"
+                id="share-copy-btn"
+              >
+                {shareCopied ? (
+                  <>
+                    <Check size={16} />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <span>Copy</span>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

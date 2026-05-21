@@ -453,7 +453,7 @@
   border-color: var(--accent-tamarind);
 }
 
-.modal-copy-btn {
+.modal-share-btn {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   width: 2.25rem;
@@ -467,21 +467,15 @@
   color: var(--text-main);
 }
 
-.modal-copy-btn:hover {
+.modal-share-btn:hover {
   background: var(--accent-saffron-glow);
   color: var(--accent-saffron);
   border-color: var(--accent-saffron);
+  transform: scale(1.05);
 }
 
-.modal-copy-btn.copied {
-  border-color: var(--accent-cardamom);
-  background: rgba(78, 128, 98, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .modal-copy-btn.copied {
-    background: rgba(108, 176, 136, 0.15);
-  }
+.modal-share-btn:active {
+  transform: scale(0.95);
 }
 
 .modal-body {
@@ -780,6 +774,171 @@
 .drawer-category-item.active .drawer-category-count {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Premium Share Modal (Desktop Overlay) --- */
+.share-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(43, 39, 35, 0.55);
+  backdrop-filter: blur(8px);
+  z-index: 1100; /* Higher than .modal-overlay (150) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  animation: fade-in 0.25s ease-out;
+}
+
+.share-modal-content {
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg); /* Precise 2px */
+  width: 100%;
+  max-width: 420px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-premium);
+  animation: zoom-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.share-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.share-modal-header h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.share-modal-close-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.share-modal-close-btn:hover {
+  background: var(--accent-tamarind);
+  color: #fff;
+  border-color: var(--accent-tamarind);
+  transform: scale(1.05);
+}
+
+.share-modal-close-btn:active {
+  transform: scale(0.95);
+}
+
+.share-modal-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.share-input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.share-url-input {
+  flex-grow: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-md); /* Precise 2px */
+  padding: 0.625rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  transition: var(--transition-smooth);
+}
+
+.share-url-input:focus {
+  border-color: var(--accent-saffron);
+  outline: none;
+  background: var(--bg-primary);
+}
+
+.share-copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  background: var(--accent-saffron);
+  color: #fff;
+  border: 1px solid var(--accent-saffron);
+  border-radius: var(--border-radius-md); /* Precise 2px */
+  padding: 0 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.share-copy-btn:hover {
+  background: #e17c24;
+  border-color: #e17c24;
+  transform: scale(1.02);
+}
+
+.share-copy-btn:active {
+  transform: scale(0.98);
+}
+
+.share-copy-btn.copied {
+  background: var(--accent-cardamom);
+  border-color: var(--accent-cardamom);
 }
 
 
