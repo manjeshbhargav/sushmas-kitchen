@@ -63,51 +63,28 @@ export const RecipeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setCategories([{ name: 'All', count: recipes.length }, ...list]);
   }, [recipes]);
 
-  // 3. Helper for slugifying category names
-  const slugify = (str: string) => {
-    return str
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
-  };
-
-  const findCategoryBySlug = (slug: string) => {
-    if (!slug || slug === 'all') return 'All';
+  // 3. Helper to find a category case-insensitively from available categories
+  const findCategoryByName = (name: string | null) => {
+    if (!name || name.toLowerCase() === 'all') return 'All';
     const allCategories = Array.from(new Set(recipes.map(r => r.category)));
-    const matched = allCategories.find(cat => slugify(cat) === slug);
+    const matched = allCategories.find(cat => cat.toLowerCase() === name.toLowerCase());
     return matched || 'All';
   };
 
-  // 4. States for filters (initialized from URL pathname synchronously)
+  // 4. States for filters (initialized from URL search parameters synchronously)
   const [selectedCategory, setSelectedCategory] = useState<string>(() => {
-    const segments = window.location.pathname.split('/').filter(Boolean);
-    if (segments[0] === 'sushmas-kitchen') {
-      segments.shift();
-    }
-    if (segments.length >= 1) {
-      const slug = segments[0];
-      if (slug === 'all') return 'All';
-      const allCategories = Array.from(new Set(recipes.map(r => r.category)));
-      const matched = allCategories.find(cat => {
-        return cat.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') === slug;
-      });
-      return matched || 'All';
-    }
-    return 'All';
+    const params = new URLSearchParams(window.location.search);
+    return findCategoryByName(params.get('category'));
   });
 
   const [searchQuery, setSearchQuery] = useState('');
   const [activeIngredients, setActiveIngredients] = useState<string[]>([]);
   
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(() => {
-    const segments = window.location.pathname.split('/').filter(Boolean);
-    if (segments[0] === 'sushmas-kitchen') {
-      segments.shift();
-    }
-    if (segments.length >= 2) {
-      const recipeId = segments[1];
-      return recipes.find(r => r.id === recipeId) || null;
+    const params = new URLSearchParams(window.location.search);
+    const recipeParam = params.get('recipeId');
+    if (recipeParam) {
+      return recipes.find(r => r.id === recipeParam) || null;
     }
     return null;
   });
@@ -120,23 +97,12 @@ export const RecipeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // Sync URL to React state on Back/Forward navigation
   useEffect(() => {
     const handlePopState = () => {
-      const segments = window.location.pathname.split('/').filter(Boolean);
-      if (segments[0] === 'sushmas-kitchen') {
-        segments.shift();
-      }
-      let cat = 'All';
-      let rec: Recipe | null = null;
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get('category');
+      const recipeParam = params.get('recipeId');
 
-      if (segments.length === 1) {
-        cat = findCategoryBySlug(segments[0]);
-      } else if (segments.length >= 2) {
-        cat = findCategoryBySlug(segments[0]);
-        const recipeId = segments[1];
-        rec = recipes.find(r => r.id === recipeId) || null;
-      }
-
-      setSelectedCategory(cat);
-      setSelectedRecipe(rec);
+      setSelectedCategory(findCategoryByName(catParam));
+      setSelectedRecipe(recipeParam ? recipes.find(r => r.id === recipeParam) || null : null);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -147,13 +113,27 @@ export const RecipeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   // Sync React state to URL (pushState) with infinite-loop prevention guard
   useEffect(() => {
-    const catSlug = slugify(selectedCategory);
-    let newPath = `/sushmas-kitchen/${catSlug}`;
-    if (selectedRecipe) {
-      newPath += `/${selectedRecipe.id}`;
+    const params = new URLSearchParams(window.location.search);
+    
+    // Set or delete category parameter
+    if (selectedCategory && selectedCategory !== 'All') {
+      params.set('category', selectedCategory);
+    } else {
+      params.delete('category');
     }
+    
+    // Set or delete recipeId parameter
+    if (selectedRecipe) {
+      params.set('recipeId', selectedRecipe.id);
+    } else {
+      params.delete('recipeId');
+    }
+    
+    const newSearch = params.toString() ? `?${params.toString()}` : '';
+    const newPath = `${window.location.pathname}${newSearch}`;
 
-    if (window.location.pathname !== newPath) {
+    // Prevent duplicate entries by comparing current query string search
+    if (window.location.search !== newSearch) {
       window.history.pushState(null, '', newPath);
     }
   }, [selectedCategory, selectedRecipe]);
