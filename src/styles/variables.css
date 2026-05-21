@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Color Palette - Light Mode */
+  --bg-primary: #fcfbfa;
+  --bg-secondary: #f4f1eb;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  
+  --text-main: #2b2723;
+  --text-muted: #6b6359;
+  
+  /* Indian Spice Colors */
+  --accent-saffron: #f28b30;     /* Saffron gold */
+  --accent-saffron-glow: rgba(242, 139, 48, 0.15);
+  --accent-cardamom: #4e8062;    /* Cardamom green */
+  --accent-tamarind: #c44b38;    /* Warm sienna */
+  
+  --border-radius-sm: 2px;
+  --border-radius-md: 2px;
+  --border-radius-lg: 2px;
+  --shadow-premium: 0 8px 32px 0 rgba(43, 39, 35, 0.06);
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Color Palette - Dark Mode */
+    --bg-primary: #12100f;
+    --bg-secondary: #1a1715;
+    --glass-bg: rgba(26, 23, 21, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    
+    --text-main: #f5f2ee;
+    --text-muted: #aba398;
+    
+    --accent-saffron: #ffa14a;
+    --accent-saffron-glow: rgba(255, 161, 74, 0.2);
+    --accent-cardamom: #6cb088;
+    --accent-tamarind: #e0634e;
+    
+    --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+}
