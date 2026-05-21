@@ -82,6 +82,9 @@ export const RecipeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // 4. States for filters (initialized from URL pathname synchronously)
   const [selectedCategory, setSelectedCategory] = useState<string>(() => {
     const segments = window.location.pathname.split('/').filter(Boolean);
+    if (segments[0] === 'sushmas-kitchen') {
+      segments.shift();
+    }
     if (segments.length >= 1) {
       const slug = segments[0];
       if (slug === 'all') return 'All';
@@ -99,6 +102,9 @@ export const RecipeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(() => {
     const segments = window.location.pathname.split('/').filter(Boolean);
+    if (segments[0] === 'sushmas-kitchen') {
+      segments.shift();
+    }
     if (segments.length >= 2) {
       const recipeId = segments[1];
       return recipes.find(r => r.id === recipeId) || null;
@@ -115,6 +121,9 @@ export const RecipeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   useEffect(() => {
     const handlePopState = () => {
       const segments = window.location.pathname.split('/').filter(Boolean);
+      if (segments[0] === 'sushmas-kitchen') {
+        segments.shift();
+      }
       let cat = 'All';
       let rec: Recipe | null = null;
 
@@ -139,7 +148,7 @@ export const RecipeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   // Sync React state to URL (pushState) with infinite-loop prevention guard
   useEffect(() => {
     const catSlug = slugify(selectedCategory);
-    let newPath = `/${catSlug}`;
+    let newPath = `/sushmas-kitchen/${catSlug}`;
     if (selectedRecipe) {
       newPath += `/${selectedRecipe.id}`;
     }
