@@ -94,7 +94,7 @@
     "title": "Roadside Kolhapuri Misal Pav"
   },
   {
-    "title": "Avarekai sagu",
+    "title": "Avarekai Sagu",
     "category": "Curries",
     "ingredients": [
       {
@@ -233,7 +233,7 @@
       "Boil well, then purée and strain.",
       "Serve with cream, cheese, croutons, and garlic bread."
     ],
-    "title": "Roasted tomato basil soup"
+    "title": "Roasted Tomato Basil Soup"
   },
   {
     "category": "Traditional",
@@ -308,10 +308,10 @@
       "Add chopped coriander, 1/2 chopped tomato, and the ground masala.",
       "Add water and boil well."
     ],
-    "title": "Iyengar Kalyana rasam"
+    "title": "Iyengar Kalyana Rasam"
   },
   {
-    "title": "Dindigal Thalapakatti egg biryani",
+    "title": "Dindigal Thalapakatti Egg Biryani",
     "category": "Rice Items",
     "ingredients": [
       {
@@ -460,7 +460,7 @@
       "Finely chop the cucumbers, onion, tomato (deseeded), and parsley.",
       "Toss them together with lemon juice, olive oil, salt, pepper, and chopped mint."
     ],
-    "title": "Israeli salad"
+    "title": "Israeli Salad"
   },
   {
     "category": "Breakfast",
@@ -530,10 +530,10 @@
       "Spread a ladle of batter on a hot tawa, add the vegetable mix, flip, and cook until done.",
       "Alternatively, sprinkle chutney pudi and veggies on the batter."
     ],
-    "title": "Quinoa uttapam"
+    "title": "Quinoa Uttapam"
   },
   {
-    "title": "Katori chaat/ chaat basket",
+    "title": "Katori Chaat / Chaat Basket",
     "category": "Chaats",
     "ingredients": [
       {
@@ -689,7 +689,7 @@
       "Mix with watered-down curds.",
       "Add a tadka of ghee, mustard, jeera, hing, and curry leaves."
     ],
-    "title": "Mixed soppu tambuli"
+    "title": "Mixed Soppu Tambuli"
   },
   {
     "category": "Salads and Soups",
@@ -778,7 +778,7 @@
       "Garnish with crispy noodles, spring onion, and ginger before serving.",
       "Serve hot."
     ],
-    "title": "Veg manchow soup"
+    "title": "Veg Manchow Soup"
   },
   {
     "category": "Spices",
@@ -806,7 +806,7 @@
       "Add the warm salt and oil, which acts as a preservative.",
       "Store it in an airtight bottle in the fridge."
     ],
-    "title": "Ginger Garlic paste"
+    "title": "Ginger Garlic Paste"
   },
   {
     "category": "Chaats",
@@ -899,10 +899,10 @@
       "Add green bhel chutney, sweet chutney, and pomegranate seeds.",
       "Sprinkle red chilli powder, jeera powder, and sev before serving."
     ],
-    "title": "Dahi bhalla"
+    "title": "Dahi Bhalla"
   },
   {
-    "title": "Avocado and bean salad",
+    "title": "Avocado And Bean Salad",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -974,7 +974,7 @@
     ]
   },
   {
-    "title": "Vegetarian chilli",
+    "title": "Vegetarian Chilli",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -1093,7 +1093,7 @@
       "Turn it to the other side and cook the tortilla until browned a bit.",
       "Cut into triangles and serve with salsa and guacamole."
     ],
-    "title": "Cheese quesadilla"
+    "title": "Cheese Quesadilla"
   },
   {
     "category": "Rice Items",
@@ -1146,7 +1146,7 @@
       "Mix in the rice, vegetable broth, or water and cook it on the stovetop.",
       "You can use this as a filling in burritos or as a side with tacos and enchiladas."
     ],
-    "title": "Mexican lemon and cilantro rice"
+    "title": "Mexican Lemon And Cilantro Rice"
   },
   {
     "category": "Continental",
@@ -1250,7 +1250,7 @@
       "Bake at 375°F for 20 mins covered, and 5 mins uncovered.",
       "Serve with a dollop of sour cream and hot sauce on top."
     ],
-    "title": "Bean and veggie enchiladas"
+    "title": "Bean And Veggie Enchiladas"
   },
   {
     "category": "Continental",
@@ -1337,10 +1337,10 @@
       "Cover it with an aluminum foil and bake at 375°F for 20 mins, then uncover it and bake it for 5 more mins.",
       "Serve with sour cream, hot sauce, and some guacamole, chips, and salsa on the side."
     ],
-    "title": "Butternut squash and sweet potato enchiladas"
+    "title": "Butternut Squash And Sweet Potato Enchiladas"
   },
   {
-    "title": "Benne biscuit/ Nankhatai",
+    "title": "Benne Biscuit / Nankhatai",
     "category": "Desserts",
     "ingredients": [
       {
@@ -1418,7 +1418,7 @@
       "Let it cool.",
       "Roll the mixture into balls."
     ],
-    "title": "Kesar peda"
+    "title": "Kesar Peda"
   },
   {
     "category": "Uncategorized",
@@ -1502,7 +1502,7 @@
       "Mix in the quinoa.",
       "Serve hot."
     ],
-    "title": "Quinoa fried rice"
+    "title": "Quinoa Fried Rice"
   },
   {
     "category": "Uncategorized",
@@ -1575,10 +1575,10 @@
       "Now stir in the noodles and garnish with shallots.",
       "Serve immediately."
     ],
-    "title": "Chinese bhel"
+    "title": "Chinese Bhel"
   },
   {
-    "title": "Fruit trifle",
+    "title": "Fruit Trifle",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -1626,7 +1626,7 @@
     ]
   },
   {
-    "title": "Kattu saru/lemon rasam",
+    "title": "Kattu Saru / Lemon Rasam",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -1737,10 +1737,10 @@
       "Roll them in cocoa powder, dried fruit powder, or powdered sugar.",
       "Allow them to set for at least 1-2 hours."
     ],
-    "title": "Chocolate and Rum truffles"
+    "title": "Chocolate And Rum Truffles"
   },
   {
-    "title": "Iyengar bakery Khara(spicy) bread",
+    "title": "Iyengar Bakery Khara(Spicy) Bread",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -1813,7 +1813,7 @@
     ]
   },
   {
-    "title": "Eggless Banana and whole wheat,cranberries and walnut bread",
+    "title": "Eggless Banana And Whole Wheat,Cranberries And Walnut Bread",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -1876,7 +1876,7 @@
     ]
   },
   {
-    "title": "Tomato pulav",
+    "title": "Tomato Pulav",
     "category": "Rice Items",
     "ingredients": [
       {
@@ -1957,7 +1957,7 @@
     ]
   },
   {
-    "title": "Pesto Bocconcini / fresh mozzarella, cherry tomato caprese salad",
+    "title": "Pesto Bocconcini / Fresh Mozzarella, Cherry Tomato Caprese Salad",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -1998,7 +1998,7 @@
     ]
   },
   {
-    "title": "Fruit chaat",
+    "title": "Fruit Chaat",
     "category": "Chaats",
     "ingredients": [
       {
@@ -2063,7 +2063,7 @@
     ]
   },
   {
-    "title": "Avocado paapdi chaat",
+    "title": "Avocado Paapdi Chaat",
     "category": "Chaats",
     "ingredients": [
       {
@@ -2165,7 +2165,7 @@
     ]
   },
   {
-    "title": "Vietnamese veg rolls with peanut butter dip.",
+    "title": "Vietnamese Veg Rolls With Peanut Butter Dip.",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -2252,7 +2252,7 @@
     ]
   },
   {
-    "title": "Roadside masala Puri",
+    "title": "Roadside Masala Puri",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -2412,7 +2412,7 @@
     ]
   },
   {
-    "title": "Vegetable, black bean taco",
+    "title": "Vegetable, Black Bean Taco",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -2490,7 +2490,7 @@
     ]
   },
   {
-    "title": "Paneer tikka",
+    "title": "Paneer Tikka",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -2551,7 +2551,7 @@
     ]
   },
   {
-    "title": "Vegetable soup",
+    "title": "Vegetable Soup",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -2584,7 +2584,7 @@
     ]
   },
   {
-    "title": "Hara Bhara kabobs",
+    "title": "Hara Bhara Kabobs",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -2691,7 +2691,7 @@
     ]
   },
   {
-    "title": "Red bhel chutney",
+    "title": "Red Bhel Chutney",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -2718,7 +2718,7 @@
     ]
   },
   {
-    "title": "Tomato slice chaat",
+    "title": "Tomato Slice Chaat",
     "category": "Chaats",
     "ingredients": [
       {
@@ -2785,7 +2785,7 @@
     ]
   },
   {
-    "title": "Green bhel chutney",
+    "title": "Green Bhel Chutney",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -2832,7 +2832,7 @@
     ]
   },
   {
-    "title": "Palak, corn soup",
+    "title": "Palak, Corn Soup",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -2885,7 +2885,7 @@
     ]
   },
   {
-    "title": "Sprouted moong chaat",
+    "title": "Sprouted Moong Chaat",
     "category": "Chaats",
     "ingredients": [
       {
@@ -2937,7 +2937,7 @@
     ]
   },
   {
-    "title": "Kurkure masala/Chaat",
+    "title": "Kurkure Masala / Chaat",
     "category": "Chaats",
     "ingredients": [
       {
@@ -2999,7 +2999,7 @@
     ]
   },
   {
-    "title": "Haldiram's moong dal chaat",
+    "title": "Haldiram's Moong Dal Chaat",
     "category": "Chaats",
     "ingredients": [
       {
@@ -3062,7 +3062,7 @@
     ]
   },
   {
-    "title": "Hagalakayi gojju",
+    "title": "Hagalakayi Gojju",
     "category": "Traditional",
     "ingredients": [
       {
@@ -3145,7 +3145,7 @@
     ]
   },
   {
-    "title": "Didhir mavinakayi uppinakayi/ instant cut mango pickle",
+    "title": "Didhir Mavinakayi Uppinakayi / Instant Cut Mango Pickle",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -3204,7 +3204,7 @@
     ]
   },
   {
-    "title": "Kittle Hannu sippe gojju/Orange peel gojju",
+    "title": "Kittle Hannu Sippe Gojju / Orange Peel Gojju",
     "category": "Traditional",
     "ingredients": [
       {
@@ -3284,7 +3284,7 @@
     ]
   },
   {
-    "title": "Masala mandakki/ churmuri type 1",
+    "title": "Masala Mandakki / Churmuri Type 1",
     "category": "Chaats",
     "ingredients": [
       {
@@ -3345,7 +3345,7 @@
     ]
   },
   {
-    "title": "Potato curry for masala dosa",
+    "title": "Potato Curry For Masala Dosa",
     "category": "Curries",
     "ingredients": [
       {
@@ -3406,7 +3406,7 @@
     ]
   },
   {
-    "title": "Vegetable, cheese croquettes",
+    "title": "Vegetable, Cheese Croquettes",
     "category": "Snacks",
     "ingredients": [
       {
@@ -3521,7 +3521,7 @@
     ]
   },
   {
-    "title": "Cabbage, onion pakodas",
+    "title": "Cabbage, Onion Pakodas",
     "category": "Snacks",
     "ingredients": [
       {
@@ -3587,7 +3587,7 @@
     ]
   },
   {
-    "title": "Goli baje( Mangalore bonda)",
+    "title": "Goli Baje( Mangalore Bonda)",
     "category": "Snacks",
     "ingredients": [
       {
@@ -3650,7 +3650,7 @@
     ]
   },
   {
-    "title": "Tzatziki dip",
+    "title": "Tzatziki Dip",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -3700,7 +3700,7 @@
     ]
   },
   {
-    "title": "Saame/ little millet pongal",
+    "title": "Saame / Little Millet Pongal",
     "category": "Breakfast",
     "ingredients": [
       {
@@ -3754,7 +3754,7 @@
     ]
   },
   {
-    "title": "Brinjal raitha/ mosaru Bajji",
+    "title": "Brinjal Raitha / Mosaru Bajji",
     "category": "Raitas",
     "ingredients": [
       {
@@ -3797,7 +3797,7 @@
     ]
   },
   {
-    "title": "Green peas masala",
+    "title": "Green Peas Masala",
     "category": "Curries",
     "ingredients": [
       {
@@ -3872,7 +3872,7 @@
     ]
   },
   {
-    "title": "Sabut Masoor dal",
+    "title": "Sabut Masoor Dal",
     "category": "Curries",
     "ingredients": [
       {
@@ -3957,7 +3957,7 @@
     ]
   },
   {
-    "title": "Navane( foxtail millet) upma",
+    "title": "Navane( Foxtail Millet) Upma",
     "category": "Traditional",
     "ingredients": [
       {
@@ -4019,7 +4019,7 @@
     ]
   },
   {
-    "title": "Masala oats",
+    "title": "Masala Oats",
     "category": "Healthy Items",
     "ingredients": [
       {
@@ -4076,7 +4076,7 @@
     ]
   },
   {
-    "title": "Churmuri type 2",
+    "title": "Churmuri Type 2",
     "category": "Chaats",
     "ingredients": [
       {
@@ -4138,7 +4138,7 @@
     ]
   },
   {
-    "title": "Herekayi/potato bonda",
+    "title": "Herekayi / Potato Bonda",
     "category": "Snacks",
     "ingredients": [
       {
@@ -4184,7 +4184,7 @@
     ]
   },
   {
-    "title": "Mandakki mixture",
+    "title": "Mandakki Mixture",
     "category": "Snacks",
     "ingredients": [
       {
@@ -4226,7 +4226,7 @@
     ]
   },
   {
-    "title": "Nimbe sippe/Lemon peel chutney.",
+    "title": "Nimbe Sippe / Lemon Peel Chutney.",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -4256,7 +4256,7 @@
     ]
   },
   {
-    "title": "Jeera, dhania kashaya.",
+    "title": "Jeera, Dhania Kashaya.",
     "category": "Healthy Items",
     "ingredients": [
       {
@@ -4279,7 +4279,7 @@
     ]
   },
   {
-    "title": "Spicy shavige",
+    "title": "Spicy Shavige",
     "category": "Breakfast",
     "ingredients": [
       {
@@ -4320,7 +4320,7 @@
     ]
   },
   {
-    "title": "Brocolli, raisins and mayo salad",
+    "title": "Brocolli, Raisins And Mayo Salad",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -4359,7 +4359,7 @@
     ]
   },
   {
-    "title": "Mint and yogurt chutney for kebabs",
+    "title": "Mint And Yogurt Chutney For Kebabs",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -4896,7 +4896,7 @@
     ]
   },
   {
-    "title": "Dantina Soppu and Avarekai Huli Sambhar",
+    "title": "Dantina Soppu And Avarekai Huli Sambhar",
     "category": "Traditional",
     "ingredients": [
       {
@@ -5011,7 +5011,7 @@
     ]
   },
   {
-    "title": "Avarekai/Flat Beans Husli",
+    "title": "Avarekai / Flat Beans Husli",
     "category": "Curries",
     "ingredients": [
       {
@@ -5199,7 +5199,7 @@
     ]
   },
   {
-    "title": "Spinach and Asparagus Soup",
+    "title": "Spinach And Asparagus Soup",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -5249,7 +5249,7 @@
     ]
   },
   {
-    "title": "Tomato and Toor Dal Rasam",
+    "title": "Tomato And Toor Dal Rasam",
     "category": "Traditional",
     "ingredients": [
       {
@@ -5314,7 +5314,7 @@
     ]
   },
   {
-    "title": "7 cup burfi",
+    "title": "7 Cup Burfi",
     "category": "Desserts",
     "ingredients": [
       {
@@ -5356,7 +5356,7 @@
     ]
   },
   {
-    "title": "Carrot payasa/kheer",
+    "title": "Carrot Payasa / Kheer",
     "category": "Desserts",
     "ingredients": [
       {
@@ -5397,7 +5397,7 @@
     ]
   },
   {
-    "title": "Vegetable kurma",
+    "title": "Vegetable Kurma",
     "category": "Curries",
     "ingredients": [
       {
@@ -5472,7 +5472,7 @@
     ]
   },
   {
-    "title": "Dry fruit burfi",
+    "title": "Dry Fruit Burfi",
     "category": "Desserts",
     "ingredients": [
       {
@@ -5523,7 +5523,7 @@
     ]
   },
   {
-    "title": "Peanut chutney",
+    "title": "Peanut Chutney",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -5574,7 +5574,7 @@
     ]
   },
   {
-    "title": "Green Apple chutney",
+    "title": "Green Apple Chutney",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -5617,7 +5617,7 @@
     ]
   },
   {
-    "title": "Kattu saru/ lemon rasam",
+    "title": "Kattu Saru / Lemon Rasam",
     "category": "Traditional",
     "ingredients": [
       {
@@ -5673,7 +5673,7 @@
     ]
   },
   {
-    "title": "Halu menasina Saru/ pepper, milk, rasam",
+    "title": "Halu Menasina Saru / Pepper, Milk, Rasam",
     "category": "Traditional",
     "ingredients": [
       {
@@ -5726,7 +5726,7 @@
     ]
   },
   {
-    "title": "Dalimbre sippe/ pomegranate peel tambuli",
+    "title": "Dalimbre Sippe / Pomegranate Peel Tambuli",
     "category": "Traditional",
     "ingredients": [
       {
@@ -5766,7 +5766,7 @@
     ]
   },
   {
-    "title": "Carrot, cucumber kosambari",
+    "title": "Carrot, Cucumber Kosambari",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -5838,7 +5838,7 @@
     ]
   },
   {
-    "title": "Kayi sasive awalakki/ poha",
+    "title": "Kayi Sasive Awalakki / Poha",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -5888,7 +5888,7 @@
     ]
   },
   {
-    "title": "Awalakki/ poha",
+    "title": "Awalakki / Poha",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -5919,7 +5919,7 @@
     ]
   },
   {
-    "title": "Jeera rice and dal",
+    "title": "Jeera Rice And Dal",
     "category": "Rice Items",
     "ingredients": [
       {
@@ -5999,7 +5999,7 @@
     ]
   },
   {
-    "title": "Dosa batter",
+    "title": "Dosa Batter",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -6032,7 +6032,7 @@
     ]
   },
   {
-    "title": "Basundi/ Rabdi",
+    "title": "Basundi / Rabdi",
     "category": "Desserts",
     "ingredients": [
       {
@@ -6071,7 +6071,7 @@
     ]
   },
   {
-    "title": "Idli batter recipe",
+    "title": "Idli Batter Recipe",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -6110,7 +6110,7 @@
     ]
   },
   {
-    "title": "Gongura poppu/ dal",
+    "title": "Gongura Poppu / Dal",
     "category": "Curries",
     "ingredients": [
       {
@@ -6164,7 +6164,7 @@
     ]
   },
   {
-    "title": "Quinoa Dosa batter",
+    "title": "Quinoa Dosa Batter",
     "category": "Healthy Items",
     "ingredients": [
       {
@@ -6198,7 +6198,7 @@
     ]
   },
   {
-    "title": "Bendekayi/ Okra gojju",
+    "title": "Bendekayi / Okra Gojju",
     "category": "Traditional",
     "ingredients": [
       {
@@ -6249,7 +6249,7 @@
     ]
   },
   {
-    "title": "Corn bhel",
+    "title": "Corn Bhel",
     "category": "Chaats",
     "ingredients": [
       {
@@ -6294,7 +6294,7 @@
     ]
   },
   {
-    "title": "Pudina pulav/ Mint pulav",
+    "title": "Pudina Pulav / Mint Pulav",
     "category": "Rice Items",
     "ingredients": [
       {
@@ -6335,7 +6335,7 @@
     ]
   },
   {
-    "title": "Chocolate fudge",
+    "title": "Chocolate Fudge",
     "category": "Desserts",
     "ingredients": [
       {
@@ -6374,7 +6374,7 @@
     ]
   },
   {
-    "title": "Mooli/ Raddish raitha",
+    "title": "Mooli / Raddish Raitha",
     "category": "Raitas",
     "ingredients": [
       {
@@ -6402,7 +6402,7 @@
     ]
   },
   {
-    "title": "Beetroot raitha",
+    "title": "Beetroot Raitha",
     "category": "Raitas",
     "ingredients": [
       {
@@ -6441,7 +6441,7 @@
     ]
   },
   {
-    "title": "Ridge-gourd/ herekayi peel chutney",
+    "title": "Ridge-Gourd / Herekayi Peel Chutney",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -6478,7 +6478,7 @@
     ]
   },
   {
-    "title": "Onion chutney",
+    "title": "Onion Chutney",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -6512,7 +6512,7 @@
     ]
   },
   {
-    "title": "Togribele/ toor dal chutney",
+    "title": "Togribele / Toor Dal Chutney",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -6546,7 +6546,7 @@
     ]
   },
   {
-    "title": "Shunti/ ginger tambuli",
+    "title": "Shunti / Ginger Tambuli",
     "category": "Traditional",
     "ingredients": [
       {
@@ -6582,7 +6582,7 @@
     ]
   },
   {
-    "title": "Methi pulav",
+    "title": "Methi Pulav",
     "category": "Rice Items",
     "ingredients": [
       {
@@ -6648,7 +6648,7 @@
     ]
   },
   {
-    "title": "Cold pasta salad",
+    "title": "Cold Pasta Salad",
     "category": "Continental",
     "ingredients": [
       {
@@ -6675,7 +6675,7 @@
     ]
   },
   {
-    "title": "Brocolli cheddar soup",
+    "title": "Brocolli Cheddar Soup",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -6726,7 +6726,7 @@
     ]
   },
   {
-    "title": "Lentil soup",
+    "title": "Lentil Soup",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -6778,7 +6778,7 @@
     ]
   },
   {
-    "title": "Minestrone soup",
+    "title": "Minestrone Soup",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -6881,7 +6881,7 @@
     ]
   },
   {
-    "title": "Basale/ Malabar spinach tambuli",
+    "title": "Basale / Malabar Spinach Tambuli",
     "category": "Traditional",
     "ingredients": [
       {
@@ -6917,7 +6917,7 @@
     ]
   },
   {
-    "title": "Samosa chaat/ Ragda samosa",
+    "title": "Samosa Chaat / Ragda Samosa",
     "category": "Chaats",
     "ingredients": [
       {
@@ -6984,7 +6984,7 @@
     ]
   },
   {
-    "title": "Peas pulav",
+    "title": "Peas Pulav",
     "category": "Rice Items",
     "ingredients": [
       {
@@ -7038,7 +7038,7 @@
     ]
   },
   {
-    "title": "Doddapatre/ Cuban oregano tambuli",
+    "title": "Doddapatre / Cuban Oregano Tambuli",
     "category": "Traditional",
     "ingredients": [
       {
@@ -7071,7 +7071,7 @@
     ]
   },
   {
-    "title": "Masala puri",
+    "title": "Masala Puri",
     "category": "Chaats",
     "ingredients": [
       {
@@ -7146,7 +7146,7 @@
     ]
   },
   {
-    "title": "Cucumber raitha",
+    "title": "Cucumber Raitha",
     "category": "Raitas",
     "ingredients": [
       {
@@ -7186,7 +7186,7 @@
     ]
   },
   {
-    "title": "Vegetable & Barley soup",
+    "title": "Vegetable & Barley Soup",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -7242,7 +7242,7 @@
     ]
   },
   {
-    "title": "Rasam with dal",
+    "title": "Rasam With Dal",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -7284,7 +7284,7 @@
     ]
   },
   {
-    "title": "Sabudana kheer",
+    "title": "Sabudana Kheer",
     "category": "Uncategorized",
     "ingredients": [
       {
@@ -7322,7 +7322,7 @@
     ]
   },
   {
-    "title": "Creamy Cold pasta salad",
+    "title": "Creamy Cold Pasta Salad",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -7365,7 +7365,7 @@
     ]
   },
   {
-    "title": "Pink pasta",
+    "title": "Pink Pasta",
     "category": "Continental",
     "ingredients": [
       {
@@ -7408,7 +7408,7 @@
     ]
   },
   {
-    "title": "Pesto pasta",
+    "title": "Pesto Pasta",
     "category": "Continental",
     "ingredients": [
       {
@@ -7447,7 +7447,7 @@
     ]
   },
   {
-    "title": "White pasta",
+    "title": "White Pasta",
     "category": "Continental",
     "ingredients": [
       {
@@ -7491,7 +7491,7 @@
     ]
   },
   {
-    "title": "Pasta primavera",
+    "title": "Pasta Primavera",
     "category": "Continental",
     "ingredients": [
       {
@@ -7527,7 +7527,7 @@
     ]
   },
   {
-    "title": "Indian style pasta",
+    "title": "Indian Style Pasta",
     "category": "Continental",
     "ingredients": [
       {
@@ -7570,7 +7570,7 @@
     ]
   },
   {
-    "title": "Marinara sauce recipe",
+    "title": "Marinara Sauce Recipe",
     "category": "Continental",
     "ingredients": [
       {
@@ -7633,7 +7633,7 @@
     ]
   },
   {
-    "title": "Aglio e olio (olive oil pasta)",
+    "title": "Aglio E Olio (Olive Oil Pasta)",
     "category": "Continental",
     "ingredients": [
       {
@@ -7673,7 +7673,7 @@
     ]
   },
   {
-    "title": "Mangalore southekayi/ Dosakayi and tondekayi/tindora sambhar",
+    "title": "Mangalore Southekayi / Dosakayi And Tondekayi / Tindora Sambhar",
     "category": "Traditional",
     "ingredients": [
       {
@@ -7749,7 +7749,7 @@
     ]
   },
   {
-    "title": "Corn raitha",
+    "title": "Corn Raitha",
     "category": "Raitas",
     "ingredients": [
       {
@@ -7789,7 +7789,7 @@
     ]
   },
   {
-    "title": "Gongura pachadi/ tokku",
+    "title": "Gongura Pachadi / Tokku",
     "category": "Chutneys",
     "ingredients": [
       {
@@ -7959,7 +7959,7 @@
     ]
   },
   {
-    "title": "Nombu kanji",
+    "title": "Nombu Kanji",
     "category": "Healthy Items",
     "ingredients": [
       {
@@ -8041,7 +8041,7 @@
     ]
   },
   {
-    "title": "Sindhi khichdi",
+    "title": "Sindhi Khichdi",
     "category": "Rice Items",
     "ingredients": [
       {
@@ -8109,7 +8109,7 @@
     ]
   },
   {
-    "title": "MTR sagu/ Bombay sagu",
+    "title": "MTR Sagu / Bombay Sagu",
     "category": "Curries",
     "ingredients": [
       {
@@ -8176,7 +8176,7 @@
     ]
   },
   {
-    "title": "Mango pie",
+    "title": "Mango Pie",
     "category": "Desserts",
     "ingredients": [
       {
@@ -8350,7 +8350,7 @@
     ]
   },
   {
-    "title": "Spinach,corn and 3 cheese lasagne.",
+    "title": "Spinach,Corn And 3 Cheese Lasagne.",
     "category": "Continental",
     "ingredients": [
       {
@@ -8438,7 +8438,7 @@
     ]
   },
   {
-    "title": "Ganji/ Conjee with Ganji saru/ uppu tili saru",
+    "title": "Ganji / Conjee With Ganji Saru / Uppu Tili Saru",
     "category": "Healthy Items",
     "ingredients": [
       {
@@ -8505,7 +8505,7 @@
     ]
   },
   {
-    "title": "Paneer Tikki pizza",
+    "title": "Paneer Tikki Pizza",
     "category": "Continental",
     "ingredients": [
       {
@@ -8641,7 +8641,7 @@
     ]
   },
   {
-    "title": "Brahmi tambuli",
+    "title": "Brahmi Tambuli",
     "category": "Traditional",
     "ingredients": [
       {
@@ -8689,7 +8689,7 @@
     ]
   },
   {
-    "title": "Menthya tambuli( fenugreek seeds).",
+    "title": "Menthya Tambuli( Fenugreek Seeds).",
     "category": "Traditional",
     "ingredients": [
       {
@@ -8748,7 +8748,7 @@
     ]
   },
   {
-    "title": "Cucumber, mint and feta salad.",
+    "title": "Cucumber, Mint And Feta Salad.",
     "category": "Salads and Soups",
     "ingredients": [
       {
@@ -8797,7 +8797,7 @@
     ]
   },
   {
-    "title": "Hesaru unde( Moong dal Laddoo)",
+    "title": "Hesaru Unde( Moong Dal Laddoo)",
     "category": "Desserts",
     "ingredients": [
       {
@@ -8835,7 +8835,7 @@
     ]
   },
   {
-    "title": "Dalia (Broken wheat Pulav)",
+    "title": "Dalia (Broken Wheat Pulav)",
     "category": "Healthy Items",
     "ingredients": [
       {

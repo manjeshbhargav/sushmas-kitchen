@@ -174,32 +174,15 @@ const MainAppFrame: React.FC = () => {
 
           {/* Recipe Grid Layout */}
           <section style={{ marginTop: '2.5rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-                <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>
-                  {selectedCategory === 'All' ? 'All Recipes' : selectedCategory}
-                </h2>
-                
-                <div className="dietary-filter-container">
-                  {activeFilters.map(filterId => {
-                    const option = FILTER_OPTIONS.find(o => o.id === filterId);
-                    if (!option) return null;
-                    return (
-                      <div key={filterId} className={`dietary-active-pill ${filterId}`} id={`active-pill-${filterId}`}>
-                        {option.icon}
-                        <span>{option.label}</span>
-                        <button 
-                          onClick={() => handleRemoveFilter(filterId)} 
-                          className="remove-pill-btn" 
-                          aria-label={`Remove ${option.label} filter`}
-                          id={`remove-pill-${filterId}`}
-                        >
-                          <X size={12} />
-                        </button>
-                      </div>
-                    );
-                  })}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
+              {/* Heading Row */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>
+                    {selectedCategory === 'All' ? 'All Recipes' : selectedCategory}
+                  </h2>
                   
+                  {/* Menu Opener Button (to the right of the heading) */}
                   <div style={{ position: 'relative' }} ref={dropdownRef}>
                     <button 
                       className="dietary-add-pill" 
@@ -249,10 +232,35 @@ const MainAppFrame: React.FC = () => {
                     )}
                   </div>
                 </div>
+                
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  Showing {filteredRecipes.length} recipes
+                </span>
               </div>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                Showing {filteredRecipes.length} recipes
-              </span>
+
+              {/* Active Dietary Pills Row (Below the heading row, only rendered if there are active filters) */}
+              {activeFilters.length > 0 && (
+                <div className="dietary-active-pills-row" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.25rem' }}>
+                  {activeFilters.map(filterId => {
+                    const option = FILTER_OPTIONS.find(o => o.id === filterId);
+                    if (!option) return null;
+                    return (
+                      <div key={filterId} className={`dietary-active-pill ${filterId}`} id={`active-pill-${filterId}`}>
+                        {option.icon}
+                        <span>{option.label}</span>
+                        <button 
+                          onClick={() => handleRemoveFilter(filterId)} 
+                          className="remove-pill-btn" 
+                          aria-label={`Remove ${option.label} filter`}
+                          id={`remove-pill-${filterId}`}
+                        >
+                          <X size={12} />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             {filteredRecipes.length > 0 ? (
