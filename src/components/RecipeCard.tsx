@@ -1,6 +1,7 @@
 import type { Recipe } from '../types/recipe';
 import { useRecipes } from '../context/RecipeContext';
-import { ArrowUpRight, ChefHat } from 'lucide-react';
+import { ChefHat, Leaf, Nut } from 'lucide-react';
+import { isVegan, containsNuts } from '../utils/dietary';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -9,21 +10,16 @@ interface RecipeCardProps {
 export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const { setSelectedRecipe } = useRecipes();
 
-  // Create ingredients list string preview (first 4 items)
-  const previewLimit = 4;
-  const previewIngredients = recipe.ingredients.slice(0, previewLimit).map(i => i.item).join(', ');
-  const remainingCount = recipe.ingredients.length - previewLimit;
-  const ingredientsString = remainingCount > 0 
-    ? `${previewIngredients} + ${remainingCount} more` 
-    : previewIngredients;
-
   const handleOpenRecipe = () => {
     setSelectedRecipe(recipe);
   };
 
+  const vegan = isVegan(recipe.ingredients);
+  const hasNuts = containsNuts(recipe.ingredients);
+
   return (
-    <div 
-      className="recipe-card" 
+    <div
+      className="recipe-card"
       onClick={handleOpenRecipe}
       id={`recipe-card-${recipe.id}`}
       role="button"
@@ -39,20 +35,29 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       </div>
 
       <h3 className="recipe-card-title">{recipe.title}</h3>
-      
-      <p className="recipe-card-ingredients-preview">
-        {ingredientsString}
-      </p>
 
       <div className="recipe-card-footer">
         <span className="recipe-card-ing-count">
           <ChefHat size={14} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
           {recipe.ingredients.length} Ingredients
         </span>
-        <span className="recipe-card-link">
-          View Recipe <ArrowUpRight size={14} />
-        </span>
+        {(vegan || hasNuts) && (
+          <div className="recipe-card-dietary-flags">
+            {vegan && (
+              <span className="dietary-flag vegan" title="Vegan">
+                <Leaf size={12} className="flag-icon" />
+              </span>
+            )}
+            {hasNuts && (
+              <span className="dietary-flag nuts" title="Contains Nuts">
+                <Nut size={12} className="flag-icon" />
+              </span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 };
+
+

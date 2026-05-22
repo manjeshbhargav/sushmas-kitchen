@@ -941,6 +941,318 @@
   border-color: var(--accent-cardamom);
 }
 
+/* Dietary badges for Vegan and Nuts */
+.recipe-card-dietary-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.dietary-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.dietary-flag.vegan {
+  background: rgba(46, 125, 50, 0.08);
+  color: #2e7d32;
+  border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dietary-flag.vegan {
+    background: rgba(76, 175, 80, 0.12);
+    color: #81c784;
+    border: 1px solid rgba(76, 175, 80, 0.25);
+  }
+}
+
+.dietary-flag.nuts {
+  background: rgba(230, 81, 0, 0.08);
+  color: #e65100;
+  border: 1px solid rgba(230, 81, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dietary-flag.nuts {
+    background: rgba(255, 152, 0, 0.12);
+    color: #ffb74d;
+    border: 1px solid rgba(255, 152, 0, 0.25);
+  }
+}
+
+.flag-icon {
+  flex-shrink: 0;
+}
+
+/* --- Dietary Filters Dynamic Pills & Dropdown --- */
+.dietary-filter-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dietary-active-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-premium);
+  animation: fade-in 0.2s ease;
+  transition: var(--transition-smooth);
+}
+
+/* Vegan Pill Style */
+.dietary-active-pill.vegan {
+  background: rgba(76, 175, 80, 0.12);
+  border-color: rgba(76, 175, 80, 0.5);
+  color: #4caf50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dietary-active-pill.vegan {
+    background: rgba(76, 175, 80, 0.2);
+    border-color: rgba(76, 175, 80, 0.8);
+    color: #81c784;
+  }
+}
+
+/* Not Vegan Pill Style */
+.dietary-active-pill.not-vegan {
+  background: rgba(244, 67, 54, 0.12);
+  border-color: rgba(244, 67, 54, 0.5);
+  color: #f44336;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dietary-active-pill.not-vegan {
+    background: rgba(244, 67, 54, 0.2);
+    border-color: rgba(244, 67, 54, 0.8);
+    color: #e57373;
+  }
+}
+
+/* Contains Nuts Pill Style */
+.dietary-active-pill.contains-nuts {
+  background: rgba(255, 152, 0, 0.12);
+  border-color: rgba(255, 152, 0, 0.5);
+  color: #ff9800;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dietary-active-pill.contains-nuts {
+    background: rgba(255, 152, 0, 0.2);
+    border-color: rgba(255, 152, 0, 0.8);
+    color: #ffb74d;
+  }
+}
+
+/* Nut Free Pill Style */
+.dietary-active-pill.nut-free {
+  background: rgba(33, 150, 243, 0.12);
+  border-color: rgba(33, 150, 243, 0.5);
+  color: #2196f3;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dietary-active-pill.nut-free {
+    background: rgba(33, 150, 243, 0.2);
+    border-color: rgba(33, 150, 243, 0.8);
+    color: #64b5f6;
+  }
+}
+
+.remove-pill-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  border-radius: 50%;
+  margin-left: 0.25rem;
+}
+
+.remove-pill-btn:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .remove-pill-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.dietary-add-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px dashed var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-premium);
+  transition: var(--transition-smooth);
+}
+
+.dietary-add-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-saffron);
+  color: var(--accent-saffron);
+  background: var(--bg-secondary);
+}
+
+.dietary-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 200px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 50;
+  animation: zoom-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-menu {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.dietary-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-main);
+  transition: var(--transition-smooth);
+  width: 100%;
+}
+
+.dietary-dropdown-item:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dietary-dropdown-item.active {
+  background: var(--accent-saffron-glow);
+  color: var(--accent-saffron);
+}
+
+/* Custom matching colors/hover styles for each dietary option */
+.dietary-dropdown-item.vegan {
+  color: #4caf50;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.vegan {
+    color: #81c784;
+  }
+}
+.dietary-dropdown-item.vegan:hover:not(:disabled) {
+  background: rgba(76, 175, 80, 0.12);
+  color: #4caf50;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.vegan:hover:not(:disabled) {
+    background: rgba(76, 175, 80, 0.2);
+    color: #81c784;
+  }
+}
+
+.dietary-dropdown-item.not-vegan {
+  color: #f44336;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.not-vegan {
+    color: #e57373;
+  }
+}
+.dietary-dropdown-item.not-vegan:hover:not(:disabled) {
+  background: rgba(244, 67, 54, 0.12);
+  color: #f44336;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.not-vegan:hover:not(:disabled) {
+    background: rgba(244, 67, 54, 0.2);
+    color: #e57373;
+  }
+}
+
+.dietary-dropdown-item.contains-nuts {
+  color: #ff9800;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.contains-nuts {
+    color: #ffb74d;
+  }
+}
+.dietary-dropdown-item.contains-nuts:hover:not(:disabled) {
+  background: rgba(255, 152, 0, 0.12);
+  color: #ff9800;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.contains-nuts:hover:not(:disabled) {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ffb74d;
+  }
+}
+
+.dietary-dropdown-item.nut-free {
+  color: #2196f3;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.nut-free {
+    color: #64b5f6;
+  }
+}
+.dietary-dropdown-item.nut-free:hover:not(:disabled) {
+  background: rgba(33, 150, 243, 0.12);
+  color: #2196f3;
+}
+@media (prefers-color-scheme: dark) {
+  .dietary-dropdown-item.nut-free:hover:not(:disabled) {
+    background: rgba(33, 150, 243, 0.2);
+    color: #64b5f6;
+  }
+}
+
+
 
 
 
