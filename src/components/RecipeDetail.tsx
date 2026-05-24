@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRecipes } from '../context/RecipeContext';
-import { X, ChefHat, CheckSquare, Layers, Share2, Check } from 'lucide-react';
+import { X, ChefHat, CheckSquare, Layers, Share2, Check, UtensilsCrossed } from 'lucide-react';
 
 export const RecipeDetail: React.FC = () => {
   const {
@@ -16,12 +16,21 @@ export const RecipeDetail: React.FC = () => {
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
 
-  useEffect(() => {
-    setCompletedSteps([]);
-    setActiveStepIndex(0);
-    setIsShareOpen(false);
-    setShareCopied(false);
-  }, [selectedRecipe]);
+  const [imgFailed, setImgFailed] = useState(false);
+
+  // Dynamically resolve recipe thumbnail image
+  let imageUrl = null;
+  if (selectedRecipe) {
+    try {
+      imageUrl = new URL(`../assets/recipes/${selectedRecipe.id}.png`, import.meta.url).href;
+    } catch {
+      // If not found, resolves to null
+    }
+  }
+
+  const handleImageError = () => {
+    setImgFailed(true);
+  };
 
   useEffect(() => {
     if (selectedRecipe) {
@@ -154,27 +163,44 @@ export const RecipeDetail: React.FC = () => {
 
         {/* Scroll Body */}
         <div className="modal-body">
+          <div className="modal-body-left">
+            <div className="modal-recipe-image-wrapper">
+              {!imgFailed && imageUrl ? (
+                <img
+                  src={imageUrl}
+                  alt={selectedRecipe.title}
+                  className="modal-recipe-image"
+                  onError={handleImageError}
+                />
+              ) : (
+                <div className="recipe-card-fallback-logo">
+                  <div className="fallback-logo-icon-wrapper">
+                    <UtensilsCrossed size={36} className="fallback-logo-icon" />
+                  </div>
+                </div>
+              )}
+            </div>
 
-
-          {/* Grid Layout - Ingredients */}
-          <section className="detail-section">
-            <h3 className="detail-section-title">
-              <ChefHat size={18} />
-              Ingredients
-            </h3>
-            <ul className="ingredients-list" id="modal-ingredients-list">
-              {selectedRecipe.ingredients.map((ing, idx) => (
-                <li key={idx} className="ingredient-item">
-                  <span className="ingredient-item-name">{ing.item}</span>
-                  {ing.quantity && (
-                    <span className="ingredient-item-qty">
-                      ({ing.quantity})
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
+            {/* Grid Layout - Ingredients */}
+            <section className="detail-section">
+              <h3 className="detail-section-title">
+                <ChefHat size={18} />
+                Ingredients
+              </h3>
+              <ul className="ingredients-list" id="modal-ingredients-list">
+                {selectedRecipe.ingredients.map((ing, idx) => (
+                  <li key={idx} className="ingredient-item">
+                    <span className="ingredient-item-name">{ing.item}</span>
+                    {ing.quantity && (
+                      <span className="ingredient-item-qty">
+                        ({ing.quantity})
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
 
           {/* Grid Layout - Step Checklist (Cooking Mode) */}
           <section className="detail-section">

@@ -84,6 +84,7 @@ const MainAppFrame: React.FC = () => {
     selectedCategory,
     searchQuery,
     setSearchQuery,
+    selectedRecipe,
   } = useRecipes();
 
   // Filtering Engine - Category & Search Queries
@@ -292,7 +293,7 @@ const MainAppFrame: React.FC = () => {
 
       {/* Modal Drawer Overlays */}
       <CategoryDrawer isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      <RecipeDetail />
+      <RecipeDetail key={selectedRecipe?.id || 'empty'} />
     </div>
   );
 };
