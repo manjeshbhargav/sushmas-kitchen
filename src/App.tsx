@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { RecipeProvider, useRecipes } from './context/RecipeContext';
+import { RecipeProvider } from './context/RecipeProvider';
+import { useRecipes } from './context/RecipeContext';
 import { CategoryDrawer } from './components/CategoryDrawer';
 import { RecipeCard } from './components/RecipeCard';
 import { RecipeDetail } from './components/RecipeDetail';

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRecipes } from '../context/RecipeContext';
-import { X, ChefHat, CheckSquare, Layers, Share2, Check, UtensilsCrossed } from 'lucide-react';
+import { X, ChefHat, CheckSquare, Layers, Share2, Check } from 'lucide-react';
+import { RecipeThumbnail } from './RecipeThumbnail';
 
 export const RecipeDetail: React.FC = () => {
   const {
@@ -15,22 +16,6 @@ export const RecipeDetail: React.FC = () => {
   // Share overlay states
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
-
-  const [imgFailed, setImgFailed] = useState(false);
-
-  // Dynamically resolve recipe thumbnail image
-  let imageUrl = null;
-  if (selectedRecipe) {
-    try {
-      imageUrl = new URL(`../assets/recipes/${selectedRecipe.id}.webp`, import.meta.url).href;
-    } catch {
-      // If not found, resolves to null
-    }
-  }
-
-  const handleImageError = () => {
-    setImgFailed(true);
-  };
 
   useEffect(() => {
     if (selectedRecipe) {
@@ -164,22 +149,13 @@ export const RecipeDetail: React.FC = () => {
         {/* Scroll Body */}
         <div className="modal-body">
           <div className="modal-body-left">
-            <div className="modal-recipe-image-wrapper">
-              {!imgFailed && imageUrl ? (
-                <img
-                  src={imageUrl}
-                  alt={selectedRecipe.title}
-                  className="modal-recipe-image"
-                  onError={handleImageError}
-                />
-              ) : (
-                <div className="recipe-card-fallback-logo">
-                  <div className="fallback-logo-icon-wrapper">
-                    <UtensilsCrossed size={36} className="fallback-logo-icon" />
-                  </div>
-                </div>
-              )}
-            </div>
+            <RecipeThumbnail
+              recipe={selectedRecipe}
+              lazy={false}
+              className="modal-recipe-image-wrapper"
+              imageClassName="modal-recipe-image"
+              fallbackIconSize={36}
+            />
 
             {/* Grid Layout - Ingredients */}
             <section className="detail-section">
