@@ -22,7 +22,7 @@ export const RecipeDetail: React.FC = () => {
   let imageUrl = null;
   if (selectedRecipe) {
     try {
-      imageUrl = new URL(`../assets/recipes/${selectedRecipe.id}.png`, import.meta.url).href;
+      imageUrl = new URL(`../assets/recipes/${selectedRecipe.id}.webp`, import.meta.url).href;
     } catch {
       // If not found, resolves to null
     }

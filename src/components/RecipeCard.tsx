@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { Recipe } from '../types/recipe';
 import { useRecipes } from '../context/RecipeContext';
 import { ChefHat, Leaf, Nut, UtensilsCrossed } from 'lucide-react';
@@ -18,29 +18,53 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   const vegan = isVegan(recipe.ingredients);
   const hasNuts = containsNuts(recipe.ingredients);
 
-  // Reset imgFailed if recipe ID changes (runs during render)
+  // Reset states if recipe ID changes (runs during render)
   const [prevId, setPrevId] = useState(recipe.id);
   const [imgFailed, setImgFailed] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   if (recipe.id !== prevId) {
     setPrevId(recipe.id);
     setImgFailed(false);
+    setIsVisible(false);
+    setIsLoading(true);
   }
+
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Set up intersection observer to lazy-load thumbnail when visible
+  useEffect(() => {
+    if (isVisible) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isVisible, recipe.id]);
 
   // Dynamically resolve image URL
   let imageUrl = null;
   try {
-    imageUrl = new URL(`../assets/recipes/${recipe.id}.png`, import.meta.url).href;
+    imageUrl = new URL(`../assets/recipes/${recipe.id}.webp`, import.meta.url).href;
   } catch {
     // If not found, resolves to null
   }
 
-  const handleImageError = () => {
-    setImgFailed(true);
-  };
-
   return (
     <div
+      ref={cardRef}
       className="recipe-card"
       onClick={handleOpenRecipe}
       id={`recipe-card-${recipe.id}`}
@@ -54,13 +78,26 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
     >
       <div className="recipe-card-image-wrapper">
         {!imgFailed && imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={recipe.title}
-            className="recipe-card-image"
-            loading="lazy"
-            onError={handleImageError}
-          />
+          <>
+            {isVisible && (
+              <img
+                src={imageUrl}
+                alt={recipe.title}
+                className={`recipe-card-image ${isLoading ? 'is-loading' : 'is-loaded'}`}
+                loading="lazy"
+                onLoad={() => setIsLoading(false)}
+                onError={() => {
+                  setImgFailed(true);
+                  setIsLoading(false);
+                }}
+              />
+            )}
+            {isVisible && isLoading && (
+              <div className="recipe-card-loader-container">
+                <div className="circular-loader" aria-label="Loading image" />
+              </div>
+            )}
+          </>
         ) : (
           <div className="recipe-card-fallback-logo">
             <div className="fallback-logo-icon-wrapper">
