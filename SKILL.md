@@ -22,7 +22,9 @@ This skill provides comprehensive instructions, technical patterns, and visual d
 When initializing a new React + TypeScript application in this workspace, follow these setup rules to ensure clean scaffolding:
 
 ### Non-Interactive App Creation
+
 To scaffold the application using Vite without prompting the user, execute:
+
 ```bash
 # Verify the template options first if needed
 npx create-vite@latest --help
@@ -33,7 +35,9 @@ npx -y create-vite@latest sushmas-kitchen-web --template react-ts
 ```
 
 ### Dependency Installation
+
 Use lightweight, robust libraries only when necessary. Avoid styling frameworks like TailwindCSS (unless explicitly requested).
+
 ```bash
 npm install lucide-react   # For premium minimalist icons
 ```
@@ -74,6 +78,7 @@ sushmas-kitchen-web/
 The application consumes recipe data loaded from `recipes.json`. Implement full type safety with the following TypeScript definitions:
 
 ### `src/types/recipe.ts`
+
 ```typescript
 export interface Ingredient {
   item: string;
@@ -86,24 +91,34 @@ export interface Recipe {
   ingredients: Ingredient[];
   method: string;
   // Added helper properties for interactive states
-  id: string;          // Auto-generated hash or slug from title
-  prepTime?: string;   // Optional metadata if parsed or estimated
-  difficulty?: 'Easy' | 'Medium' | 'Complex'; // Deduced from ingredient/step count
+  id: string; // Auto-generated hash or slug from title
+  prepTime?: string; // Optional metadata if parsed or estimated
+  difficulty?: "Easy" | "Medium" | "Complex"; // Deduced from ingredient/step count
 }
-
-
 ```
 
 ### Recipe Schema Parsing Helper
+
 Ensure every recipe is assigned a stable unique ID upon load by slugifying the title. Retain all recipes in the master list, standardizing empty or null categories to `'Uncategorized'`. When generating unique category list pills, exclude the `'Uncategorized'` category so that these recipes are only visible under the `'All'` view. For instance, in your `RecipeContext`:
+
 ```typescript
-import rawRecipes from '../../recipes.json';
+import rawRecipes from "../../recipes.json";
 
 const recipes: Recipe[] = (rawRecipes as any[]).map((r, index) => ({
   ...r,
-  category: r.category && r.category.trim() !== '' ? r.category : 'Uncategorized',
-  id: r.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || `recipe-${index}`,
-  difficulty: r.ingredients.length > 12 ? 'Complex' : r.ingredients.length > 6 ? 'Medium' : 'Easy'
+  category:
+    r.category && r.category.trim() !== "" ? r.category : "Uncategorized",
+  id:
+    r.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "") || `recipe-${index}`,
+  difficulty:
+    r.ingredients.length > 12
+      ? "Complex"
+      : r.ingredients.length > 6
+        ? "Medium"
+        : "Easy",
 }));
 ```
 
@@ -114,14 +129,16 @@ const recipes: Recipe[] = (rawRecipes as any[]).map((r, index) => ({
 "Sushma's Kitchen" must look and feel exceptionally premium, modern, and responsive. Implement a high-fidelity visual theme using **Vanilla CSS Custom Properties**.
 
 ### Design Principles
+
 1. **Mobile-First Responsiveness**: All styling must be written mobile-first! Base styles must define layout and presentation for mobile viewports (e.g. single-column stack, large tap targets, optimized padding). Progressively enhance layout scaling using `min-width` media queries (e.g., `@media (min-width: 768px)` for tablet, `@media (min-width: 1024px)` for desktop). Avoid using `max-width` queries to downscale desktop-first designs.
 2. **Glassmorphism**: Use sophisticated frosted glass panels (`backdrop-filter: blur(16px)`) with thin, glowing semi-transparent borders for cards and overlays.
 3. **Harmonious Palette**: Warm, inviting tones inspired by Indian spices, combined with ultra-modern dark modes.
 4. **Smooth Typography**: Rely on clean modern fonts: `Outfit` (for luxury headers) and `Inter` (for readable, crisp body text).
 
 ### `src/styles/variables.css`
+
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap");
 
 :root {
   /* Color Palette - Light Mode */
@@ -129,16 +146,16 @@ const recipes: Recipe[] = (rawRecipes as any[]).map((r, index) => ({
   --bg-secondary: #f4f1eb;
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.4);
-  
+
   --text-main: #2b2723;
   --text-muted: #6b6359;
-  
+
   /* Indian Spice Colors */
-  --accent-saffron: #f28b30;     /* Saffron gold */
+  --accent-saffron: #f28b30; /* Saffron gold */
   --accent-saffron-glow: rgba(242, 139, 48, 0.15);
-  --accent-cardamom: #4e8062;    /* Cardamom green */
-  --accent-tamarind: #c44b38;    /* Warm sienna */
-  
+  --accent-cardamom: #4e8062; /* Cardamom green */
+  --accent-tamarind: #c44b38; /* Warm sienna */
+
   --border-radius-sm: 8px;
   --border-radius-md: 16px;
   --border-radius-lg: 24px;
@@ -153,21 +170,22 @@ const recipes: Recipe[] = (rawRecipes as any[]).map((r, index) => ({
     --bg-secondary: #1a1715;
     --glass-bg: rgba(26, 23, 21, 0.6);
     --glass-border: rgba(255, 255, 255, 0.08);
-    
+
     --text-main: #f5f2ee;
     --text-muted: #aba398;
-    
+
     --accent-saffron: #ffa14a;
     --accent-saffron-glow: rgba(255, 161, 74, 0.2);
     --accent-cardamom: #6cb088;
     --accent-tamarind: #e0634e;
-    
+
     --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 }
 ```
 
 ### Example Glassmorphic Card & Mobile-First Grid Styling
+
 ```css
 /* --- Mobile-First Layout Scaffolding --- */
 
@@ -216,15 +234,19 @@ const recipes: Recipe[] = (rawRecipes as any[]).map((r, index) => ({
   .recipe-card {
     padding: 1.5rem; /* Slightly roomier styling on desktop */
   }
-  
+
   .recipe-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-saffron), var(--accent-tamarind));
+    background: linear-gradient(
+      90deg,
+      var(--accent-saffron),
+      var(--accent-tamarind)
+    );
     opacity: 0;
     transition: var(--transition-smooth);
   }
@@ -248,24 +270,78 @@ const recipes: Recipe[] = (rawRecipes as any[]).map((r, index) => ({
 The application must deliver an immersive user experience, avoiding a basic list-and-display layout. Ensure the following rich features are fully built:
 
 ### A. The Header Search & Recipe Explorer
-* **Header Search Bar**: Premium fuzzy search input integrated directly into the top bar for maximum accessibility and modern aesthetic. It filters recipes instantly on recipe title only.
-* **Category Carousel**: Display categories (Chaats, Curries, Rice Items, Breakfast, Traditional, Salads and Soups, etc.) as clean glassmorphic pills with counts in the Explorer panel.
 
-
+- **Header Search Bar**: Premium fuzzy search input integrated directly into the top bar for maximum accessibility and modern aesthetic. It filters recipes instantly on recipe title only.
+- **Category Carousel**: Display categories (Chaats, Curries, Rice Items, Breakfast, Traditional, Salads and Soups, etc.) as clean glassmorphic pills with counts in the Explorer panel.
 
 ### C. Step-by-Step Interactive Cooking Mode
-* Instead of showing the `method` as a block of text, parse sentences or break down by punctuation (e.g., splitting by periods `.`) to present a clean checklist.
-* Allow users to click/tap a step to mark it as completed, shifting focus, applying an elegant strike-through, and highlighting the *current* active step with a subtle warm saffron border.
-* Provide an optional "Focus Mode" that hides all other UI elements, showing one step at a time in massive, legible typography.
 
-
+- Instead of showing the `method` as a block of text, parse sentences or break down by punctuation (e.g., splitting by periods `.`) to present a clean checklist.
+- Allow users to click/tap a step to mark it as completed, shifting focus, applying an elegant strike-through, and highlighting the _current_ active step with a subtle warm saffron border.
+- Provide an optional "Focus Mode" that hides all other UI elements, showing one step at a time in massive, legible typography.
 
 ---
 
 ## 6. SEO & Performance Rules
 
 Automatically implement best practices on all pages:
-* **Unique IDs**: Attach explicit unique IDs to all interactive elements (`#search-input`, `#recipe-tab-traditional`) to ease automation, manual testing, and assistive technologies.
-* **Semantic Markups**: Use `<header>`, `<main>`, `<article>`, `<aside>`, and `<footer>` appropriately.
-* **Autofocus and Accessibility**: Add keyboard navigational hooks (tabs) for standard modals, and clear contrast levels matching WCAG AA standards.
-* **Performant Images**: Optimize image loads and implement SVGs or generated gradient placeholders for fallback representations where recipes have no direct assets.
+
+- **Unique IDs**: Attach explicit unique IDs to all interactive elements (`#search-input`, `#recipe-tab-traditional`) to ease automation, manual testing, and assistive technologies.
+- **Semantic Markups**: Use `<header>`, `<main>`, `<article>`, `<aside>`, and `<footer>` appropriately.
+- **Autofocus and Accessibility**: Add keyboard navigational hooks (tabs) for standard modals, and clear contrast levels matching WCAG AA standards.
+- **Performant Images**: Optimize image loads and implement SVGs or generated gradient placeholders for fallback representations where recipes have no direct assets.
+
+## 7. Generating Thumbnails for Recipes
+
+Follow these exact steps when adding or updating recipe thumbnails in the catalog to ensure visual consistency and high mobile performance:
+
+### Step 1: Find the Next batch of 10 Recipes
+
+Check for last generated thumbnail to determine the starting point for the next batch recipes. Extract the array of next 10 recipe titles starting from the next index.
+
+### Step 2: Resolve the Unique Recipe ID
+
+The dynamically loaded thumbnails are matched to the recipe using a slugified unique ID structure. Determine the ID by finding the recipe's zero-based `index` in `recipes.json` and formatting its title:
+
+```typescript
+const id = `${
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "") || `recipe-${index}`
+}-${index}`;
+```
+
+_Example_: `"Tomato Slice Chaat"` at index `40` maps to `tomato-slice-chaat-40`.
+
+### Step 3: Generate the High-Fidelity Image
+
+For each recipe title, use the AI image generator to create the asset.
+
+- **Prompt**:
+  `"A premium food photography thumbnail placeholder. An overhead flat lay shot of a beautifully presented dish, "{{title}}" on a dark textured background. Elegant, cozy, moody lighting, shallow depth of field, minimalist Indian cuisine vibe."`
+- **Style Guidance**: Avoid passing style reference images that contain text watermarks to the `ImagePaths` option. This prevents the generator from baking in unwanted text overlays (like "Roadside Kolhapuri Misal Pav") directly onto the new thumbnail.
+
+### Step 4: Run the Image Optimization Pipeline
+
+To prevent long load times on cellular 5G networks, never commit raw PNG files (which are ~900KB) directly. You must optimize the image down to **WebP** format:
+
+1. Convert and resize the image to **512x512 pixels** (webp quality 80):
+   ```javascript
+   node ./scripts/convertRecipeThumbnailsToWebP.js
+   ```
+   This script will:
+   - Automatically read all PNG files from the assets/recipes directory.
+   - Convert each image to a WebP format with 512x512 resolution and 80% quality.
+   - Replace the original PNG file with the new WebP file, ensuring the filename remains the same for easy reference.
+   - Automatically clean up the original PNG files after successful conversion, maintaining a tidy assets folder without user intervention.
+   - This drops the file weight to **~45KB – 60KB** (a **94% savings**) which ensures instant loads.
+
+### Step 5: Verify and Deploy
+
+Run the production compiler and deploy script:
+
+```bash
+npm run build   # Ensure Vite bundles the dynamic WebP asset cleanly
+npm run deploy  # Publish changes to GitHub Pages
+```
